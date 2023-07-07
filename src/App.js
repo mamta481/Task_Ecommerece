@@ -1,38 +1,27 @@
-import { useState, useEffect } from "react";
-import "./App.css";
-import ClipLoader from "react-spinners/ClipLoader";
-import styles from "./styles/Commonstyle";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+//import Loader from "./Components/Loader";
+import Home from "./Components/Home";
+import Cart from "./Components/Cart";
+import Pagenotfound from "./Components/Pagenotfound";
+import Product from "./Components/Product";
+import ProductDetail from "./Components/ProductDetail";
+import { Provider } from "react-redux";
+import store from "./Components/store/store";
 
 const App = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    // Creating a timeout within the useEffect hook
-    setTimeout(() => {
-      setData("Welcome to gfg!");
-      setIsLoading(false);
-    }, 1000);
-  }, []);
-
   return (
     <>
-      {isLoading ? (
-        <>
-          <div style={styles.main}>
-            <ClipLoader
-              color={"red"}
-              loading={isLoading}
-              size={150}
-              aria-label="Loading Spinner"
-            />
-          </div>
-        </>
-      ) : (
-        <>
-          <p style={styles.main}>nhhhhhhhhh{data}</p>
-        </>
-      )}
+      {/* <Loader /> */}
+      <Provider store={store}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/productdetail" element={<ProductDetail />} />
+          <Route path="*" element={<Pagenotfound />} />
+        </Routes>
+      </Provider>
     </>
   );
 };
