@@ -29,6 +29,16 @@ const styles = {
     marginTop: "-8%",
     marginLeft: "-68%",
   },
+  text: { marginTop: "130%", marginLeft: "-99%" },
+  buttonstyle: { marginLeft: "-77%" },
+  outercard: {
+    width: "18rem",
+    height: "auto",
+    borderStyle: "solid",
+    borderWidth: "thin",
+    marginBottom: "1rem",
+  },
+  typography: { marginTop: "100%", marginLeft: "-99%" },
 };
 
 export default styles;

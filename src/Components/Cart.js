@@ -52,16 +52,13 @@ const Cart = () => {
             Title: {key.title}
           </Typography>
           <div>
-            <Typography
-              variant="h6"
-              style={{ marginTop: "130%", marginLeft: "-99%" }}
-            >
+            <Typography variant="h6" style={styles.text}>
               Category:{key.category}
             </Typography>
             <Button
               variant="contained"
               color="secondary"
-              style={{ marginLeft: "-77%" }}
+              style={styles.buttonstyle}
               onClick={() => deleteItem(key.id)}
             >
               Remove Item

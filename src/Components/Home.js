@@ -10,6 +10,7 @@ import Ele from "../../src/assets/ele.jpg";
 import styles from "../styles/Commonstyle";
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Loader from "./Loader";
 
 const Home = () => {
   const [categories, SetCategories] = useState([]);
@@ -25,7 +26,6 @@ const Home = () => {
         console.log("Error", err);
         return;
       }
-      console.log("Dfafda", json.data);
       SetCategories(json.data);
     });
   };
@@ -37,16 +37,7 @@ const Home = () => {
   function Categoryfunction(key, index) {
     return (
       <>
-        <Card
-          sx={{ maxWidth: 345 }}
-          style={{
-            width: "18rem",
-            height: "auto",
-            borderStyle: "solid",
-            borderWidth: "thin",
-            marginBottom: "1rem",
-          }}
-        >
+        <Card sx={{ maxWidth: 345 }} style={styles.outercard}>
           <CardMedia sx={{ height: 200 }} image={Ele} title="Images" />
 
           <CardActions>
@@ -75,6 +66,7 @@ const Home = () => {
       <Typography variant="h2" sx={{ textAlign: "center" }}>
         All Categories
       </Typography>
+      <Loader />
       <div className="col-md-3" style={styles.card}>
         {CategoriesList}
       </div>

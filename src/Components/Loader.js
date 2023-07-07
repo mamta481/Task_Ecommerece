@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import styles from "../styles/Commonstyle";
-//import Home from "./Home";
 
 const Loader = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
 
   useEffect(() => {
     // Creating a timeout within the useEffect hook
     setTimeout(() => {
-      setData("Welcome to gfg!");
       setIsLoading(false);
     }, 1000);
   }, []);
@@ -29,11 +26,7 @@ const Loader = () => {
           </div>
         </>
       ) : (
-        <>
-          {null}
-          {/* {data}
-          <Home /> */}
-        </>
+        <>{null}</>
       )}
     </>
   );

@@ -48,7 +48,7 @@ function ResponsiveAppBar() {
   };
 
   const inputValuefunction = (e) => {
-    if (e.target.value == "") {
+    if (e.target.value === "") {
       SetCategories(SerachApiData);
     } else {
       const filterval = SerachApiData.filter((item) =>

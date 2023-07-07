@@ -5,11 +5,11 @@ import { API_ENDPOINTS } from "./ApiEndpoints/apiendpoints";
 import styles from "../styles/Commonstyle";
 import { Typography } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
+import Loader from "./Loader";
 
 const Product = () => {
   const { state } = useLocation();
   const { key } = state;
-  console.log("sbsbdj", key);
   const [products, Setproducts] = useState([]);
   const navigate = useNavigate();
   const getAllCategory = async () => {
@@ -54,10 +54,7 @@ const Product = () => {
             Title: {key.title}
           </Typography>
           <div>
-            <Typography
-              variant="h6"
-              style={{ marginTop: "100%", marginLeft: "-99%" }}
-            >
+            <Typography variant="h6" style={styles.typography}>
               Category:{key.category}
             </Typography>
           </div>
@@ -75,6 +72,7 @@ const Product = () => {
       <Typography variant="h2" sx={{ textAlign: "center" }}>
         All products
       </Typography>
+      <Loader />
       {productsList}
     </>
   );
